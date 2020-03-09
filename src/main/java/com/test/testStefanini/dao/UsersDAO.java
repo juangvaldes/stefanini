@@ -27,6 +27,7 @@ public class UsersDAO {
         TypedQuery<Users> queryUsers = em.createNamedQuery("loginUser", Users.class);
 
         Gson gson = new Gson();
+        
 
         Users userData = gson.fromJson(users, Users.class);
 
@@ -34,6 +35,7 @@ public class UsersDAO {
         queryUsers.setParameter("user_password", userData.getUser_password());
 
         List<Users> resultList = queryUsers.getResultList();
+
 
         return resultList;
     }
